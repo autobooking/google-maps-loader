@@ -82,6 +82,16 @@
 				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&libraries=hello,day' + '&v=' + googleVersion);
 			});
 
+			it('should create url with one map id', function() {
+				GoogleMapsLoader.MAP_IDS = ['74e61c6b2543f84'];
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&map_ids=74e61c6b2543f84' + '&v=' + googleVersion);
+			});
+
+			it('should create url with one map ids', function() {
+				GoogleMapsLoader.MAP_IDS = ['74e61c6b2543f84','45а24а5b2543f84'];
+				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&map_ids=74e61c6b2543f84,45а24а5b2543f84' + '&v=' + googleVersion);
+			});
+
 			it('should create url with version', function() {
 				GoogleMapsLoader.VERSION = '999';
 				expect(GoogleMapsLoader.createUrl()).to.be.equal(baseUrl + '?callback=' + cb + '&v=999');
